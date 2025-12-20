@@ -1,0 +1,7 @@
+{
+  "name": "Integrated Quant Terminal",
+  "description": "Professional-grade real-time market analysis dashboard using Gemini 3 series models for quantitative synthesis and trade recommendations.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
