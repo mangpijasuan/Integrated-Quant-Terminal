@@ -35,7 +35,7 @@ const SentimentCard: React.FC<SentimentCardProps> = React.memo(({ data, type, on
               <span className="text-[10px] font-bold text-zinc-600 tracking-widest uppercase">Signal Id: {data.symbol}</span>
               <div className={`w-2 h-2 rounded-full animate-pulse ${bgColor}`}></div>
             </div>
-            <h3 className="text-6xl font-black text-white tracking-tighter leading-none group-hover:text-[#ffb800] transition-colors font-mono drop-shadow-[0_2px_16px_rgba(0,255,160,0.15)] animate-pulse-slow">
+            <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none group-hover:text-[#ffb800] transition-colors font-mono drop-shadow-[0_2px_12px_rgba(0,255,160,0.12)]">
               {data.symbol}
             </h3>
             <div className="flex items-center gap-2 mt-4 text-zinc-500 font-mono text-xs font-bold">
@@ -44,7 +44,7 @@ const SentimentCard: React.FC<SentimentCardProps> = React.memo(({ data, type, on
             </div>
           </div>
           
-           <div className={`px-6 py-3 rounded-bl-2xl absolute top-0 right-0 ${bgColor} text-black font-black text-xl tracking-tighter shadow-xl shadow-black/50 animate-fade-in`}
+           <div className={`px-4 py-2 rounded-bl-2xl absolute top-0 right-0 ${bgColor} text-black font-black text-sm tracking-tighter shadow-md shadow-black/40`}
                 style={{ filter: 'drop-shadow(0 0 8px #00ff9d88)' }}>
              {action === Recommendation.Buy ? 'Buy Signal' : action === Recommendation.Sell ? 'Sell Signal' : 'Hold Pattern'}
            </div>
@@ -83,8 +83,8 @@ const SentimentCard: React.FC<SentimentCardProps> = React.memo(({ data, type, on
         </div>
       </div>
 
-      <div className="absolute bottom-[-15%] right-[-5%] p-2 opacity-[0.06] select-none pointer-events-none rotate-12 scale-125 blur-[2px]">
-        <div className="text-[12rem] font-black font-mono tracking-tighter text-cyan-400/40 animate-fade-in">{data.symbol}</div>
+      <div className="absolute bottom-[-10%] right-[-5%] p-2 opacity-[0.05] select-none pointer-events-none rotate-12 scale-110 blur-[1px]">
+        <div className="text-6xl md:text-7xl font-black font-mono tracking-tighter text-cyan-400/30">{data.symbol}</div>
       </div>
     </div>
   );

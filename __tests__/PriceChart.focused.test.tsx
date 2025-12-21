@@ -2,18 +2,23 @@ import React from 'react';
 // Mock recharts so chart primitives render simple DOM nodes we can assert on
 jest.mock('recharts', () => {
   const React = require('react');
+  const wrap = (tag: string, pick: string[] = []) => (props: any) => {
+    const out: any = {};
+    pick.forEach(k => { if (props[k] !== undefined) out[k] = props[k]; });
+    return React.createElement(tag, { 'data-props': JSON.stringify(out) });
+  };
   return {
     ComposedChart: ({ children }: any) => React.createElement('svg', null, children),
-    Line: (props: any) => React.createElement('line', props),
-    Area: (props: any) => React.createElement('path', props),
-    XAxis: (props: any) => React.createElement('g', props),
-    YAxis: (props: any) => React.createElement('g', props),
-    CartesianGrid: (props: any) => React.createElement('g', props),
-    Tooltip: (props: any) => React.createElement('div', props),
+    Line: wrap('line', ['name', 'stroke']),
+    Area: wrap('path', ['name', 'fill']),
+    XAxis: wrap('g', ['dataKey']),
+    YAxis: wrap('g', ['yAxisId', 'label']),
+    CartesianGrid: wrap('g', []),
+    Tooltip: wrap('div', []),
     ResponsiveContainer: ({ children }: any) => React.createElement('div', { style: { width: 800, height: 600 } }, children),
     Bar: ({ children }: any) => React.createElement('g', null, children),
-    ReferenceLine: (props: any) => React.createElement('line', props),
-    Cell: (props: any) => React.createElement('rect', { fill: props.fill }),
+    ReferenceLine: wrap('line', ['y', 'label']),
+    Cell: (props: any) => React.createElement('rect', { 'data-fill': props.fill }),
   };
 });
 

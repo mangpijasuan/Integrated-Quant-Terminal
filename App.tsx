@@ -260,11 +260,11 @@ const App: React.FC = () => {
                   <span className="px-2.5 py-1 bg-zinc-900 text-[#ffb800] text-[10px] font-black rounded tracking-widest border border-[#ffb800]/10 uppercase">Level 1 Asset</span>
                   <span className="text-zinc-400 text-sm font-bold tracking-tight">{snapshot.companyName}</span>
                 </div>
-                <h1 className="text-8xl md:text-9xl font-black tracking-tighter text-white leading-none drop-shadow-2xl">{snapshot.symbol}</h1>
+                  <h1 className="text-6xl md:text-7xl font-black tracking-tighter text-white leading-none drop-shadow-2xl">{snapshot.symbol}</h1>
               </div>
             </div>
             <div className="text-left xl:text-right flex flex-col items-start xl:items-end">
-              <div className="text-7xl md:text-8xl font-black font-mono tabular-nums text-white text-glow leading-none">${(snapshot.currentPrice ?? 0).toFixed(2)}</div>
+              <div className="text-5xl md:text-6xl font-black font-mono tabular-nums text-white text-glow leading-none">${(snapshot.currentPrice ?? 0).toFixed(2)}</div>
               <div className={`text-4xl font-black font-mono mt-4 ${(snapshot.priceChange ?? 0) >= 0 ? 'text-[#00ff9d]' : 'text-[#ff2e63]'}`}>
                 {(snapshot.priceChange ?? 0) >= 0 ? '▲' : '▼'} {(snapshot.priceChange ?? 0).toFixed(2)} ({(snapshot.priceChangePercent ?? 0).toFixed(2)}%)
               </div>
@@ -318,7 +318,7 @@ const App: React.FC = () => {
                 </div>
                 
                 <div className="flex flex-col items-center justify-center space-y-8 mb-16">
-                  <div className={`text-[12rem] font-black leading-none tracking-tighter ${snapshot.recommendation?.action === 'BUY' ? 'text-[#00ff9d]' : snapshot.recommendation?.action === 'SELL' ? 'text-[#ff2e63]' : 'text-[#ffb800]'} drop-shadow-[0_0_40px_rgba(0,255,157,0.1)] select-none`}>
+                  <div className={`text-8xl font-black leading-none tracking-tighter ${snapshot.recommendation?.action === 'BUY' ? 'text-[#00ff9d]' : snapshot.recommendation?.action === 'SELL' ? 'text-[#ff2e63]' : 'text-[#ffb800]'} drop-shadow-[0_0_40px_rgba(0,255,157,0.1)] select-none`}>
                     {snapshot.recommendation?.action?.[0] || 'H'}
                   </div>
                   <div className="text-center">
@@ -487,6 +487,23 @@ const App: React.FC = () => {
                  </div>
               </div>
            </div>
+        </div>
+      );
+    }
+
+    if (activeView === 'derivatives') {
+      if (!snapshot) return <div className="p-20 text-center text-zinc-600 uppercase tracking-widest">Asset Probe Required</div>;
+
+      return (
+        <div className="p-6 lg:p-10 h-full animate-in fade-in duration-500 overflow-y-auto custom-scrollbar">
+          <div className="flex justify-between items-center mb-6 border-b border-zinc-900 pb-4">
+            <h3 className="text-xl font-black text-white tracking-tight">Options Flow</h3>
+            <div className="text-[10px] text-[#ffb800] font-bold">Chain Snapshot</div>
+          </div>
+
+          <div className="glass-card p-6 bg-zinc-950/20 border-zinc-900/50">
+            <OptionsTable options={snapshot.option_chain_snapshot || []} />
+          </div>
         </div>
       );
     }

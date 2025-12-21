@@ -14,7 +14,7 @@ const OptionsTable: React.FC<OptionsTableProps> = ({ options }) => {
     return options.filter(o => o.type === filterType);
   }, [options, filterType]);
 
-  if (!options.length) return <div className="text-zinc-600 text-xs italic py-8">No option data available for this stream.</div>;
+  if (!options.length) return <div className="text-zinc-600 text-sm italic py-8">No option data available for this stream.</div>;
 
   return (
     <div className="space-y-4">
@@ -23,14 +23,14 @@ const OptionsTable: React.FC<OptionsTableProps> = ({ options }) => {
           <button 
             key={t}
             onClick={() => setFilterType(t)}
-            className={`px-4 py-1.5 rounded-full text-[11px] font-bold tracking-wider transition-all ${filterType === t ? 'bg-white text-black' : 'bg-zinc-900 text-zinc-500'}`}
+            className={`px-4 py-2 rounded-full text-sm font-bold tracking-wider transition-all ${filterType === t ? 'bg-white text-black' : 'bg-zinc-900 text-zinc-500'}`}
           >
             {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}s
           </button>
         ))}
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs">
+        <table className="w-full text-left text-sm">
           <thead className="text-zinc-600 font-bold tracking-wider border-b border-zinc-800">
             <tr>
               <th className="pb-4">Strike</th>
@@ -45,7 +45,7 @@ const OptionsTable: React.FC<OptionsTableProps> = ({ options }) => {
               <tr key={i} className="border-b border-zinc-900/50 hover:bg-zinc-900/20">
                 <td className="py-3 font-bold text-white">${opt.strike}</td>
                 <td className="py-3 tabular-nums text-zinc-400">${opt.lastPrice.toFixed(2)}</td>
-                <td className="py-3 text-[10px] font-bold">{opt.expiry}</td>
+                <td className="py-3 text-sm font-bold">{opt.expiry}</td>
                 <td className="py-3 text-zinc-500">{(opt.iv * 100).toFixed(1)}%</td>
                 <td className={`py-3 font-bold ${opt.delta > 0 ? 'text-green-500' : 'text-rose-500'}`}>{opt.delta.toFixed(2)}</td>
               </tr>
