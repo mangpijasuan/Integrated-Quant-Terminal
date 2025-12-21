@@ -1,5 +1,5 @@
 
-import React from 'react';
+import * as React from 'react';
 import { SentimentSymbol, Recommendation } from '../types';
 import { COLOR_BUY, COLOR_SELL, COLOR_HOLD } from '../constants';
 

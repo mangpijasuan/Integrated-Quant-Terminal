@@ -1,5 +1,5 @@
 
-import React from 'react';
+import * as React from 'react';
 import { COLOR_HOLD, COLOR_BUY, COLOR_SELL } from '../constants';
 import {
   ComposedChart,
@@ -71,7 +71,7 @@ const PriceChart: React.FC<PriceChartProps> = React.memo(({ data, indicators }) 
           </div>
         </div>
       );
-    });
+    }
     return null;
   };
 
@@ -182,6 +182,6 @@ const PriceChart: React.FC<PriceChartProps> = React.memo(({ data, indicators }) 
       </div>
     </div>
   );
-};
+});
 
 export default PriceChart;
