@@ -7,7 +7,7 @@ describe("App", () => {
   const app = createApp();
 
   it("returns health status", async () => {
-    const response = await request(app).get("/health/healthz");
+    const response = await request(app).get("/healthz");
 
     expect(response.status).toBe(200);
     expect(response.body.status).toBe("ok");
@@ -15,7 +15,7 @@ describe("App", () => {
   });
 
   it("returns readiness status", async () => {
-    const response = await request(app).get("/health/readyz");
+    const response = await request(app).get("/readyz");
 
     expect(response.status).toBe(200);
     expect(response.body.status).toBe("ready");
@@ -41,7 +41,7 @@ describe("App", () => {
   });
 
   it("returns Prometheus metrics", async () => {
-    const response = await request(app).get("/health/metrics");
+    const response = await request(app).get("/metrics");
 
     expect(response.status).toBe(200);
     expect(response.text).toContain("process_cpu_user_seconds_total");

@@ -1,12 +1,11 @@
 import { createServer } from "node:http";
-import pino from "pino";
 
 import { createApp } from "./app.js";
 import { env } from "./config/env.js";
+import { logger } from "./lib/logger.js";
 
 const app = createApp();
 const server = createServer(app);
-const logger = pino({ level: process.env.NODE_ENV === "production" ? "info" : "debug" });
 
 server.listen(env.PORT, () => {
   logger.info({ port: env.PORT }, "Server started");

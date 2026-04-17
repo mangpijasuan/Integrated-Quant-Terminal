@@ -7,7 +7,7 @@ export function errorHandler(
   error: ErrorWithStatus,
   req: Request,
   res: Response,
-  _next: NextFunction,
+  _next: NextFunction, // Express error signature requires this arg.
 ): void {
   if (error instanceof ZodError) {
     res.status(400).json({

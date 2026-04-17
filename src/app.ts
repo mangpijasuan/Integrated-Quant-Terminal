@@ -6,7 +6,7 @@ import helmet from "helmet";
 
 import { env } from "./config/env.js";
 import { errorHandler } from "./middleware/error-handler.js";
-import { httpLogger } from "./lib/logger.js";
+import { requestLogger } from "./lib/logger.js";
 import { recordHttpRequest } from "./lib/metrics.js";
 import { attachRequestId } from "./middleware/request-id.js";
 import { notFoundHandler } from "./middleware/not-found.js";
@@ -20,7 +20,7 @@ export const createApp = () => {
   app.set("trust proxy", 1);
 
   app.use(attachRequestId);
-  app.use(httpLogger);
+  app.use(requestLogger);
   app.use(helmet());
   app.use(cors({ origin: env.CORS_ORIGIN === "*" ? true : env.CORS_ORIGIN }));
   app.use(compression());
@@ -41,7 +41,7 @@ export const createApp = () => {
     next();
   });
 
-  app.use("/health", healthRouter);
+  app.use(healthRouter);
   app.use("/api/v1", v1Router);
 
   app.use(notFoundHandler);
