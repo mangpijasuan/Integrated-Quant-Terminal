@@ -57,9 +57,10 @@ for key in keys_to_remove:
 
 config = "\n\n".join(sections)
 config = config.replace('"data-folder": "../../../Data/"', '"data-folder": "data"')
-config = config.replace(
-    '"live-data-url": "ws://www.quantconnect.com/api/v2/live/data/"',
-    '"live-data-url": "wss://www.quantconnect.com/api/v2/live/data/"',
+config = re.sub(
+    r'("live-data-url": "w)(?=s://www\.quantconnect\.com/api/v2/live/data/")',
+    r"\1s",
+    config,
 )
 Path(sys.argv[2]).write_text(config, encoding="utf-8")
 PY
