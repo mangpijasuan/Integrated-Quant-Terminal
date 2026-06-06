@@ -1,0 +1,254 @@
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: #7dd3fc;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.subtitle {
+  margin: 0.75rem 0 0;
+  color: #94a3b8;
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.35);
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+dl {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+dl div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+dt {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+.error {
+  color: #fca5a5;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.ok {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+.badge.warn {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fcd34d;
+}
+
+.echo-panel {
+  margin-top: 1rem;
+}
+
+.echo-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.echo-form label {
+  font-weight: 600;
+}
+
+.echo-form input {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.75rem;
+  background: #020617;
+  color: inherit;
+  padding: 0.85rem 1rem;
+}
+
+.echo-form button {
+  justify-self: start;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+
+.echo-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.response {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.backtest-panel {
+  margin-top: 1rem;
+}
+
+.runtime-banner {
+  margin-top: 1rem;
+}
+
+.issue-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: #fca5a5;
+}
+
+.runtime-help {
+  margin-top: 0.75rem;
+}
+
+.setup-steps {
+  margin-top: 1rem;
+}
+
+.setup-steps ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: #cbd5e1;
+}
+
+.backtest-controls {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.backtest-controls select {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.75rem;
+  background: #020617;
+  color: inherit;
+  padding: 0.85rem 1rem;
+}
+
+.backtest-controls button {
+  justify-self: start;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #0f766e, #0891b2);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+
+.backtest-controls button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.active-job,
+.job-history {
+  margin-top: 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 1rem;
+}
+
+.summary-card {
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.summary-label {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.summary-value {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.job-table {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.job-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.2fr;
+  gap: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 0.75rem;
+  background: #020617;
+  color: inherit;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+}

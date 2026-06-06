@@ -1,0 +1,5 @@
+{
+  "algorithm-language": "Python",
+  "parameters": {},
+  "description": "Buy and hold SPY using bundled Lean sample minute data."
+}
