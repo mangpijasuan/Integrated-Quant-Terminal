@@ -42,14 +42,14 @@ A production-ready full-stack quant terminal with an Express 5 + TypeScript API,
 - Node.js 20+
 - npm
 - Docker (for Lean backtests)
-- Python 3 + Lean CLI (`pip install lean`)
+- Python 3 + Lean CLI (`python3 -m pip install lean`)
 
 ### Install and run
 
 ```bash
 npm install
 npm install --prefix frontend
-pip install lean
+python3 -m pip install lean
 npm run setup:lean
 npm run dev
 ```
@@ -113,7 +113,7 @@ Lean local backtests run inside Docker via the `quantconnect/lean` image. You ne
 3. **Lean sample data** downloaded
 
 ```bash
-pip install lean
+python3 -m pip install lean
 npm run setup:lean
 docker ps
 ```

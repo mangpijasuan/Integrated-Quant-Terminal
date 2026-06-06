@@ -184,7 +184,7 @@ export async function getLeanRuntimeStatus(): Promise<LeanRuntimeStatus> {
   }
 
   if (!(await commandExists(leanCliPath))) {
-    issues.push(`Lean CLI not found (${leanCliPath}). Install with: pip install lean`);
+    issues.push(`Lean CLI not found (${leanCliPath}). Install with: python3 -m pip install lean`);
   }
 
   const docker = await getDockerStatus();

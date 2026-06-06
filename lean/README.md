@@ -14,14 +14,14 @@ This directory contains QuantConnect Lean projects used by the Integrated Termin
 From the repository root:
 
 ```bash
-pip install lean
+python3 -m pip install lean
 ./scripts/setup-lean.sh
 ```
 
 Requirements:
 
 - Docker Desktop or Docker Engine **running** (`docker ps` must succeed)
-- Lean CLI (`pip install lean`)
+- Lean CLI (`python3 -m pip install lean`)
 
 Lean does not run backtests natively on the host. The CLI launches the `quantconnect/lean` Docker image for each run.
 
