@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { getApiInfo, getHealth, getReadiness, postEcho } from "./api/client";
+import BacktestPanel from "./components/BacktestPanel";
 import type { ApiInfo, EchoResponse, HealthStatus, ReadinessStatus } from "./types";
 import "./App.css";
 
@@ -75,9 +76,9 @@ export default function App() {
     <div className="app">
       <header className="hero">
         <p className="eyebrow">Integrated Quant Terminal</p>
-        <h1>Backend + Frontend Dashboard</h1>
+        <h1>Quant Terminal Dashboard</h1>
         <p className="subtitle">
-          React frontend connected to the Express API through the Vite dev proxy.
+          React frontend connected to the Express API, with Lean backtesting orchestration built in.
         </p>
       </header>
 
@@ -137,6 +138,8 @@ export default function App() {
           )}
         </article>
       </section>
+
+      <BacktestPanel />
 
       <section className="card echo-panel">
         <h2>Echo API</h2>

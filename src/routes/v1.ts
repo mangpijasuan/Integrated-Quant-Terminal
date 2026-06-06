@@ -12,6 +12,14 @@ router.get("/", (_req, res) => {
     service: "integrated-terminal-api",
     version: "v1",
     docs: "Use POST /api/v1/echo with JSON body { message: string }",
+    backtests: {
+      runtime: "GET /api/v1/backtests/runtime",
+      projects: "GET /api/v1/backtests/projects",
+      create: "POST /api/v1/backtests",
+      list: "GET /api/v1/backtests",
+      detail: "GET /api/v1/backtests/:id",
+      results: "GET /api/v1/backtests/:id/results",
+    },
   });
 });
 

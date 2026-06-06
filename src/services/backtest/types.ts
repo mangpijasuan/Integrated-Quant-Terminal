@@ -1,27 +1,3 @@
-export type HealthStatus = {
-  status: string;
-  uptimeSeconds: number;
-  timestamp: string;
-};
-
-export type ReadinessStatus = {
-  status: string;
-};
-
-export type ApiInfo = {
-  service: string;
-  version: string;
-  docs: string;
-};
-
-export type EchoResponse = {
-  data: {
-    message: string;
-  };
-  receivedAt: string;
-  requestId: string;
-};
-
 export type BacktestStatus = "queued" | "running" | "completed" | "failed";
 
 export type BacktestSummary = {
@@ -37,21 +13,24 @@ export type BacktestJob = {
   startedAt: string | null;
   completedAt: string | null;
   error: string | null;
+  outputDir: string | null;
   summary: BacktestSummary | null;
   parameters: Record<string, string>;
 };
 
-export type BacktestRuntime = {
+export type LeanRuntimeStatus = {
   ready: boolean;
   leanRoot: string;
   leanCliPath: string;
   issues: string[];
   projects: string[];
-  activeJobId: string | null;
 };
 
-export type BacktestProjectsResponse = {
-  projects: string[];
-  ready: boolean;
-  issues: string[];
+export type LeanBacktestResultFile = {
+  Statistics?: Record<string, string>;
+  RuntimeStatistics?: Record<string, string>;
+  TotalPerformance?: {
+    PortfolioStatistics?: Record<string, string | number>;
+    TradeStatistics?: Record<string, string | number>;
+  };
 };

@@ -145,3 +145,96 @@ dd {
   overflow-x: auto;
   white-space: pre-wrap;
 }
+
+.backtest-panel {
+  margin-top: 1rem;
+}
+
+.runtime-banner {
+  margin-top: 1rem;
+}
+
+.issue-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: #fca5a5;
+}
+
+.backtest-controls {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.backtest-controls select {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 0.75rem;
+  background: #020617;
+  color: inherit;
+  padding: 0.85rem 1rem;
+}
+
+.backtest-controls button {
+  justify-self: start;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #0f766e, #0891b2);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+
+.backtest-controls button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.active-job,
+.job-history {
+  margin-top: 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 1rem;
+}
+
+.summary-card {
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.summary-label {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.summary-value {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.job-table {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.job-row {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.2fr;
+  gap: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 0.75rem;
+  background: #020617;
+  color: inherit;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+}

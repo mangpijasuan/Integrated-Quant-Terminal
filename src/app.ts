@@ -11,6 +11,7 @@ import { recordHttpRequest } from "./lib/metrics.js";
 import { attachRequestId } from "./middleware/request-id.js";
 import { notFoundHandler } from "./middleware/not-found.js";
 import { healthRouter } from "./routes/health.js";
+import { backtestsRouter } from "./routes/backtests.js";
 import { v1Router } from "./routes/v1.js";
 
 export const createApp = () => {
@@ -42,6 +43,7 @@ export const createApp = () => {
   });
 
   app.use(healthRouter);
+  app.use("/api/v1/backtests", backtestsRouter);
   app.use("/api/v1", v1Router);
 
   app.use(notFoundHandler);
