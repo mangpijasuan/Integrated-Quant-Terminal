@@ -62,7 +62,7 @@
   "reserved-words-prefix": "@",
 
   // live data configuration
-  "live-data-url": "ws://www.quantconnect.com/api/v2/live/data/",
+  "live-data-url": "wss://www.quantconnect.com/api/v2/live/data/",
   "live-data-port": 8020,
 
   // live portfolio state
