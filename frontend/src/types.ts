@@ -41,6 +41,13 @@ export type BacktestJob = {
   parameters: Record<string, string>;
 };
 
+export type DockerStatus = {
+  installed: boolean;
+  running: boolean;
+  message: string;
+  setup: string[];
+};
+
 export type BacktestRuntime = {
   ready: boolean;
   leanRoot: string;
@@ -48,6 +55,7 @@ export type BacktestRuntime = {
   issues: string[];
   projects: string[];
   activeJobId: string | null;
+  docker: DockerStatus;
 };
 
 export type BacktestProjectsResponse = {

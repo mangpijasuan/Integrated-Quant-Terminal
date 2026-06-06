@@ -20,8 +20,10 @@ pip install lean
 
 Requirements:
 
-- Docker (Lean backtests run inside `quantconnect/lean`)
+- Docker Desktop or Docker Engine **running** (`docker ps` must succeed)
 - Lean CLI (`pip install lean`)
+
+Lean does not run backtests natively on the host. The CLI launches the `quantconnect/lean` Docker image for each run.
 
 ## Run manually
 

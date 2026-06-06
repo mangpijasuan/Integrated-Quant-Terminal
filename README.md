@@ -106,14 +106,25 @@ npm run dev:web
 
 ## Lean backtesting
 
-1. Install Lean CLI and initialize the workspace:
+Lean local backtests run inside Docker via the `quantconnect/lean` image. You need:
+
+1. **Docker Desktop** installed and running (`docker ps` should work)
+2. **Lean CLI** installed
+3. **Lean sample data** downloaded
 
 ```bash
 pip install lean
 npm run setup:lean
+docker ps
 ```
 
-2. Start the app and open the frontend backtest panel, or call the API directly:
+If the UI shows a Docker warning:
+
+- **macOS/Windows:** open Docker Desktop and wait until it reports Running
+- **Linux:** `sudo systemctl start docker`
+- **Permission errors:** `sudo usermod -aG docker $USER`, then log out and back in
+
+1. Start the app and open the frontend backtest panel, or call the API directly:
 
 ```bash
 curl -X POST http://localhost:3000/api/v1/backtests \

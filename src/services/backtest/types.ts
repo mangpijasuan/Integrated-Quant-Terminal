@@ -18,12 +18,20 @@ export type BacktestJob = {
   parameters: Record<string, string>;
 };
 
+export type DockerStatus = {
+  installed: boolean;
+  running: boolean;
+  message: string;
+  setup: string[];
+};
+
 export type LeanRuntimeStatus = {
   ready: boolean;
   leanRoot: string;
   leanCliPath: string;
   issues: string[];
   projects: string[];
+  docker: DockerStatus;
 };
 
 export type LeanBacktestResultFile = {

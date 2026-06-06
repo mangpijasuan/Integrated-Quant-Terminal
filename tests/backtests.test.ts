@@ -17,6 +17,8 @@ describe("Backtests API", () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty("ready");
     expect(response.body).toHaveProperty("projects");
+    expect(response.body).toHaveProperty("docker");
+    expect(response.body.docker).toHaveProperty("running");
     expect(response.body.projects).toContain("BuyAndHoldSPY");
   });
 

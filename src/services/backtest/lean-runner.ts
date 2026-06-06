@@ -3,7 +3,7 @@ import { access, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 import { env } from "../../config/env.js";
-import type { LeanBacktestResultFile, LeanRuntimeStatus } from "./types.js";
+import type { DockerStatus, LeanBacktestResultFile, LeanRuntimeStatus } from "./types.js";
 
 function getLeanPathEnv(): NodeJS.ProcessEnv {
   const localBin = path.join(process.env.HOME ?? "", ".local", "bin");
@@ -34,6 +34,112 @@ async function commandExists(command: string): Promise<boolean> {
     child.on("close", (code) => resolve(code === 0));
     child.on("error", () => resolve(false));
   });
+}
+
+type CommandResult = {
+  code: number | null;
+  stdout: string;
+  stderr: string;
+};
+
+async function runCommand(command: string, args: string[] = []): Promise<CommandResult> {
+  return new Promise((resolve) => {
+    const child = spawn(command, args, {
+      env: getLeanPathEnv(),
+    });
+
+    let stdout = "";
+    let stderr = "";
+
+    child.stdout.on("data", (chunk: Buffer | string) => {
+      stdout += chunk.toString();
+    });
+
+    child.stderr.on("data", (chunk: Buffer | string) => {
+      stderr += chunk.toString();
+    });
+
+    child.on("error", (error) => {
+      resolve({
+        code: 1,
+        stdout,
+        stderr: error.message,
+      });
+    });
+
+    child.on("close", (code) => {
+      resolve({
+        code,
+        stdout,
+        stderr,
+      });
+    });
+  });
+}
+
+export async function getDockerStatus(): Promise<DockerStatus> {
+  const setup = {
+    install: [
+      "Install Docker Desktop: https://docs.docker.com/get-docker/",
+      "Linux alternative: sudo apt-get install -y docker.io",
+    ],
+    start: [
+      "Start Docker Desktop (macOS/Windows), then wait until it says Running",
+      "Linux: sudo systemctl start docker",
+      "Verify with: docker ps",
+    ],
+  };
+
+  if (!(await commandExists("docker"))) {
+    return {
+      installed: false,
+      running: false,
+      message: "Docker is not installed. Lean local backtests run inside Docker.",
+      setup: setup.install,
+    };
+  }
+
+  const result = await runCommand("docker", ["info"]);
+  if (result.code === 0) {
+    return {
+      installed: true,
+      running: true,
+      message: "Docker daemon is running.",
+      setup: [],
+    };
+  }
+
+  const output = `${result.stderr} ${result.stdout}`.toLowerCase();
+  if (output.includes("cannot connect") || output.includes("daemon running")) {
+    return {
+      installed: true,
+      running: false,
+      message: "Docker is installed but the daemon is not running.",
+      setup: setup.start,
+    };
+  }
+
+  if (output.includes("permission denied")) {
+    return {
+      installed: true,
+      running: false,
+      message: "Docker is installed but your user cannot access the Docker socket.",
+      setup: [
+        "Linux: sudo usermod -aG docker $USER, then log out and back in",
+        "Or run the API with access to /var/run/docker.sock",
+      ],
+    };
+  }
+
+  return {
+    installed: true,
+    running: false,
+    message: "Docker is installed but unavailable in this environment.",
+    setup: [
+      ...setup.start,
+      "Cloud VMs may block Docker networking; use Docker Desktop locally instead.",
+    ],
+  };
 }
 
 export async function discoverLeanProjects(leanRoot: string): Promise<string[]> {
@@ -81,8 +187,9 @@ export async function getLeanRuntimeStatus(): Promise<LeanRuntimeStatus> {
     issues.push(`Lean CLI not found (${leanCliPath}). Install with: pip install lean`);
   }
 
-  if (!(await commandExists("docker"))) {
-    issues.push("Docker is required for local Lean backtests.");
+  const docker = await getDockerStatus();
+  if (!docker.running) {
+    issues.push(docker.message);
   }
 
   let projects: string[] = [];
@@ -104,6 +211,7 @@ export async function getLeanRuntimeStatus(): Promise<LeanRuntimeStatus> {
     leanCliPath,
     issues,
     projects,
+    docker,
   };
 }
 

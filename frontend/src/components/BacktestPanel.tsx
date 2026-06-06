@@ -95,11 +95,23 @@ export default function BacktestPanel() {
             {runtime.ready ? "Lean runtime ready" : "Lean runtime needs setup"}
           </p>
           {!runtime.ready && (
-            <ul className="issue-list">
-              {runtime.issues.map((issue) => (
-                <li key={issue}>{issue}</li>
-              ))}
-            </ul>
+            <div className="runtime-help">
+              <ul className="issue-list">
+                {runtime.issues.map((issue) => (
+                  <li key={issue}>{issue}</li>
+                ))}
+              </ul>
+              {runtime.docker.setup.length > 0 && (
+                <div className="setup-steps">
+                  <p className="muted">To enable local Lean backtests:</p>
+                  <ol>
+                    {runtime.docker.setup.map((step) => (
+                      <li key={step}>{step}</li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+            </div>
           )}
         </div>
       )}

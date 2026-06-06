@@ -160,6 +160,20 @@ dd {
   color: #fca5a5;
 }
 
+.runtime-help {
+  margin-top: 0.75rem;
+}
+
+.setup-steps {
+  margin-top: 1rem;
+}
+
+.setup-steps ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: #cbd5e1;
+}
+
 .backtest-controls {
   display: grid;
   gap: 0.75rem;
