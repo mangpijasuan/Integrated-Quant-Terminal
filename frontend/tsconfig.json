@@ -16,6 +16,8 @@
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",
     "paths": {
+      "@/lib/*": ["./lib/*", "./shared/*"],
+      "@/shared/*": ["./shared/*"],
       "@/*": ["./*"]
     }
   },

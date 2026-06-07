@@ -12,8 +12,9 @@ eggs/
 .eggs/
 /lib/
 lib64/
-# Keep frontend shared modules even if a global gitignore ignores similar paths
+# Keep frontend modules even if a global gitignore ignores similar paths
 !frontend/shared/
+!frontend/lib/
 parts/
 sdist/
 var/
