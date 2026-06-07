@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Search, Brain, Zap, TrendingUp } from "lucide-react";
 import toast from "react-hot-toast";
-import { apiPost } from "@/lib/api";
+import { apiPost } from "@/shared/api";
 import AnalystReport, { AnalystReportData } from "@/components/analyst/AnalystReport";
 import Spinner from "@/components/ui/Spinner";
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
-import { formatPrice, formatChange, colorForChange } from "@/lib/utils";
+import { formatPrice, formatChange, colorForChange } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
-import { useApiCache } from "@/lib/use-api-cache";
+import { useApiCache } from "@/shared/use-api-cache";
 
 interface MarketItem {
   symbol: string;

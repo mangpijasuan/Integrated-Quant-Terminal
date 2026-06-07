@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Zap, TrendingUp, TrendingDown } from "lucide-react";
-import { apiPost } from "@/lib/api";
+import { apiPost } from "@/shared/api";
 import Spinner from "@/components/ui/Spinner";
 import toast from "react-hot-toast";
 

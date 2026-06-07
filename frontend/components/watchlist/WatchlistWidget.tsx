@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { Plus, X, RefreshCw, Star } from "lucide-react";
 import toast from "react-hot-toast";
-import { apiPost, apiDelete } from "@/lib/api";
-import { invalidateApiCache, useApiCache } from "@/lib/use-api-cache";
-import { formatPrice, colorForChange } from "@/lib/utils";
+import { apiPost, apiDelete } from "@/shared/api";
+import { invalidateApiCache, useApiCache } from "@/shared/use-api-cache";
+import { formatPrice, colorForChange } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
 
 interface WatchItem {

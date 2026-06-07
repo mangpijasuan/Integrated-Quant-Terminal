@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getAuthToken, clearAuthToken } from "@/lib/api";
+import { getAuthToken, clearAuthToken } from "@/shared/api";
 import Spinner from "./Spinner";
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {

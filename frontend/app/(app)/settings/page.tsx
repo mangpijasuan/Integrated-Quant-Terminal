@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Settings, Key, Bell, User, Shield, RefreshCw } from "lucide-react";
-import { apiGet, apiPost, clearAuthToken } from "@/lib/api";
+import { apiGet, apiPost, clearAuthToken } from "@/shared/api";
 import toast from "react-hot-toast";
 import Spinner from "@/components/ui/Spinner";
 

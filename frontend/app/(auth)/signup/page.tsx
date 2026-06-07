@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, TrendingUp, Lock, Mail, User } from "lucide-react";
 import toast from "react-hot-toast";
-import { apiPost, setAuthToken } from "@/lib/api";
+import { apiPost, setAuthToken } from "@/shared/api";
 
 export default function SignupPage() {
   const router = useRouter();

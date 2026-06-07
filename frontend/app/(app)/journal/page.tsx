@@ -4,8 +4,8 @@ import { useCallback, useEffect, useState } from "react";
 import {
   BookOpen, Plus, RefreshCw, X, Pencil,
 } from "lucide-react";
-import { apiDelete, apiGet, apiPatch, apiPost, apiPut } from "@/lib/api";
-import { colorForChange } from "@/lib/utils";
+import { apiDelete, apiGet, apiPatch, apiPost, apiPut } from "@/shared/api";
+import { colorForChange } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
 import toast from "react-hot-toast";
 

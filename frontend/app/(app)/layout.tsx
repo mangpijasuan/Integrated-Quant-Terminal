@@ -1,7 +1,7 @@
 import Sidebar from "@/components/dashboard/Sidebar";
 import Topbar from "@/components/dashboard/Topbar";
 import AuthGuard from "@/components/ui/AuthGuard";
-import { SidebarProvider } from "@/lib/sidebar-context";
+import { SidebarProvider } from "@/shared/sidebar-context";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (

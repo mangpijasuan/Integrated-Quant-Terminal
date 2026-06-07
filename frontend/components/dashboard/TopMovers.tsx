@@ -1,8 +1,8 @@
 "use client";
 import { Flame, TrendingUp, TrendingDown } from "lucide-react";
-import { colorForChange } from "@/lib/utils";
+import { colorForChange } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
-import { useApiCache } from "@/lib/use-api-cache";
+import { useApiCache } from "@/shared/use-api-cache";
 import { useState } from "react";
 
 interface Mover {

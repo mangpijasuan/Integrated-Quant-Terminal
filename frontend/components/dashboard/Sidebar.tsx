@@ -7,9 +7,9 @@ import {
   Crosshair, BarChart2, ChevronRight, ChevronDown, BookOpen,
 } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { clearAuthToken } from "@/lib/api";
-import { useSidebar } from "@/lib/sidebar-context";
+import { cn } from "@/shared/utils";
+import { clearAuthToken } from "@/shared/api";
+import { useSidebar } from "@/shared/sidebar-context";
 
 type NavItem = {
   href: string;

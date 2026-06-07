@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import { PieChart, RefreshCw, TrendingUp, TrendingDown, DollarSign } from "lucide-react";
-import { apiGet, apiDelete } from "@/lib/api";
-import { colorForChange } from "@/lib/utils";
+import { apiGet, apiDelete } from "@/shared/api";
+import { colorForChange } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
 import toast from "react-hot-toast";
-import { fetchCached, invalidateApiCache } from "@/lib/use-api-cache";
+import { fetchCached, invalidateApiCache } from "@/shared/use-api-cache";
 
 interface Account {
   equity: number;

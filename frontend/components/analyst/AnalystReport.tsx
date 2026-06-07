@@ -1,7 +1,7 @@
 "use client";
 import Badge from "@/components/ui/Badge";
 import { TrendingUp, TrendingDown, AlertTriangle, Brain, DollarSign, BarChart2, Users } from "lucide-react";
-import { formatPrice, formatLargeNumber } from "@/lib/utils";
+import { formatPrice, formatLargeNumber } from "@/shared/utils";
 
 export interface AnalystReportData {
   ticker: string;

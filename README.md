@@ -103,7 +103,7 @@ npm run dev
 │   │   ├── watchlist/        # WatchlistWidget
 │   │   ├── analyst/          # AnalystReport
 │   │   └── ui/               # Badge, Spinner
-│   └── lib/
+│   └── shared/
 │       ├── api.ts            # API client + auth token mgmt
 │       └── utils.ts          # Formatters, helpers
 └── backend/

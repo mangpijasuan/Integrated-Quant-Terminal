@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Bell, Wifi, WifiOff, Menu, LayoutDashboard, LineChart, Newspaper, Zap, Brain, PieChart, Bot, Crosshair } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useApiCache } from "@/lib/use-api-cache";
-import { useSidebar } from "@/lib/sidebar-context";
-import { cn } from "@/lib/utils";
+import { useApiCache } from "@/shared/use-api-cache";
+import { useSidebar } from "@/shared/sidebar-context";
+import { cn } from "@/shared/utils";
 
 interface TickerItem {
   symbol: string;

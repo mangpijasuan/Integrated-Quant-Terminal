@@ -1,7 +1,7 @@
 "use client";
 import { Activity } from "lucide-react";
 import Spinner from "@/components/ui/Spinner";
-import { useApiCache } from "@/lib/use-api-cache";
+import { useApiCache } from "@/shared/use-api-cache";
 
 interface MoodData {
   score: number;

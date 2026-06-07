@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Layers, Search, Zap } from "lucide-react";
-import { apiGet, apiPost } from "@/lib/api";
+import { apiGet, apiPost } from "@/shared/api";
 import Spinner from "@/components/ui/Spinner";
 import toast from "react-hot-toast";
 

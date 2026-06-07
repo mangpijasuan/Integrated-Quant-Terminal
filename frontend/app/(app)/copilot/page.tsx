@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { Crosshair, Send, Zap, TrendingUp, TrendingDown, Minus } from "lucide-react";
-import { apiPost } from "@/lib/api";
+import { apiPost } from "@/shared/api";
 import Spinner from "@/components/ui/Spinner";
 
 interface Message {

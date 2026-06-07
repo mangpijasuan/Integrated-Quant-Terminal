@@ -1,8 +1,8 @@
 "use client";
 import { RefreshCw, TrendingUp, TrendingDown, LineChart } from "lucide-react";
-import { colorForChange, formatPrice } from "@/lib/utils";
+import { colorForChange, formatPrice } from "@/shared/utils";
 import Spinner from "@/components/ui/Spinner";
-import { useApiCache } from "@/lib/use-api-cache";
+import { useApiCache } from "@/shared/use-api-cache";
 
 interface Quote {
   symbol: string;

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { LineChart, RefreshCw, X } from "lucide-react";
-import { apiGet, apiDelete } from "@/lib/api";
+import { apiGet, apiDelete } from "@/shared/api";
 import Spinner from "@/components/ui/Spinner";
 import toast from "react-hot-toast";
 

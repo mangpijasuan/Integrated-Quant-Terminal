@@ -2,7 +2,7 @@
 import { Newspaper, ExternalLink, RefreshCw, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import Spinner from "@/components/ui/Spinner";
 import Badge from "@/components/ui/Badge";
-import { useApiCache } from "@/lib/use-api-cache";
+import { useApiCache } from "@/shared/use-api-cache";
 import { useState } from "react";
 
 interface NewsItem {
