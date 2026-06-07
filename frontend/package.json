@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/check-shared.js",
+    "prebuild": "node scripts/check-shared.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

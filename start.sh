@@ -73,6 +73,13 @@ echo ""
 echo "🖥️  Starting frontend (Next.js)..."
 cd frontend
 
+if [ ! -f "shared/utils.ts" ]; then
+  echo "❌ Missing frontend/shared/utils.ts"
+  echo "   Run: git pull origin main"
+  echo "   Or:  git checkout origin/main -- frontend/shared"
+  exit 1
+fi
+
 if [ ! -d "node_modules" ]; then
   echo "📦 Installing frontend dependencies..."
   npm install
