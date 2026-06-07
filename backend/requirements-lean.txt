@@ -1,0 +1,2 @@
+lean>=1.0.220
+setuptools>=70,<82
