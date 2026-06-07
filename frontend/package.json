@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/check-shared.js && bash ../scripts/fix-frontend-modules.sh",
-    "prebuild": "node scripts/check-shared.js && bash ../scripts/fix-frontend-modules.sh",
+    "predev": "node scripts/check-shared.js && node scripts/ensure-modules.js",
+    "prebuild": "node scripts/check-shared.js && node scripts/ensure-modules.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

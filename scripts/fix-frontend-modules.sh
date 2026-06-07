@@ -51,5 +51,4 @@ if changed == 0:
 PY
 fi
 
-rm -rf "$ROOT/frontend/.next"
-echo "✅ Frontend modules OK (cleared .next cache)"
+echo "✅ Frontend modules OK"

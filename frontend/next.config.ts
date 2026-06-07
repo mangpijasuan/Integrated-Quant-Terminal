@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+const backendUrl = process.env.BACKEND_URL || "http://127.0.0.1:8000";
+
 const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
@@ -14,7 +16,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:8000/:path*",
+        destination: `${backendUrl}/:path*`,
       },
     ];
   },

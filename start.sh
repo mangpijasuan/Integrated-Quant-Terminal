@@ -71,8 +71,10 @@ cd ..
 # Frontend
 echo ""
 echo "🖥️  Starting frontend (Next.js)..."
-bash scripts/fix-frontend-modules.sh
+node frontend/scripts/ensure-modules.js
 cd frontend
+
+echo "BACKEND_URL=http://127.0.0.1:${BACKEND_PORT}" > .env.local
 
 if [ ! -d "node_modules" ]; then
   echo "📦 Installing frontend dependencies..."
